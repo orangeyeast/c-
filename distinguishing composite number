@@ -1,0 +1,58 @@
+
+
+#include <stdio.h>
+
+#include <math.h>
+
+int main() {
+
+	int input = 0;
+
+	printf("please type a number");
+
+	scanf_s("%d",&input);
+
+	int n = (int)sqrt(input);
+
+	int isComposite = 0;
+
+	if (input <= 1) {
+		
+		printf("%d isn't a composite number\n", input);
+		
+		return 0;
+	}
+
+	while (n>1) {
+
+		if (input%n==0) {
+
+			isComposite = 1;
+
+			break;
+		}
+
+		else {
+
+			n = n - 1;
+
+			continue;
+		}
+
+	}
+
+	if (isComposite != 1) {
+
+		printf("%d isn't a composite number", input);
+	}
+
+	else {
+
+		printf("%d is a composite number", input);
+
+	}
+
+	return 0;
+
+}
+
