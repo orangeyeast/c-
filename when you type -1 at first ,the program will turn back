@@ -1,0 +1,52 @@
+
+
+#include <stdio.h>
+
+int main() {
+	int number = 0;
+
+	int sum = 0;
+
+	int n = 0;
+
+	float result = 0;
+
+	while(1) {
+
+		printf("please type a number \n use -1 as the end\n");
+
+		scanf_s("%d",&n);
+
+		if (n == -1) {
+
+			if (number == 0) {
+
+				printf("invalid input! Please type again \n");
+
+				continue;
+			}
+
+			if (number != 0) {
+
+				break;
+			}
+		}
+
+		if (n != -1) {
+
+			number++;
+
+			sum = sum + n;
+		}
+
+	} 
+
+
+	result = (float)sum / number;
+	
+	printf("the result is %f\n", result);
+
+	return 0;
+
+}
+
