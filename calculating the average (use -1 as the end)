@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+
+int main() {
+	int number = 0;
+
+	int sum = 0;
+
+	int n = 0;
+
+	float result = 0;
+
+	do {
+
+		printf("please type a number \n use -1 as the end");
+
+		scanf_s("%d",&n);
+
+		if (n != -1) {
+			number++;
+
+			sum = sum + n;
+
+		}
+
+	} while (n!=-1);
+
+	if (number > 0) {
+		result = (float)sum / number;
+		printf("the result is %f\n", result);
+	}
+	else {
+		printf("No valid numbers entered.\n");
+	}
+
+	return 0;
+
+
+}
+
