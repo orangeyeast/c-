@@ -1,0 +1,54 @@
+
+#include <stdio.h>
+
+#include <math.h>
+
+int main() {
+
+	int input = 100;
+
+	while (input > 1) {
+
+		int isComposite = 0;
+
+		int n = (int)sqrt(input);
+
+		while (n > 1) {
+
+			if (input % n == 0) {
+
+				isComposite = 1;
+
+				break;
+			}
+
+			else {
+
+				isComposite = 0;
+
+				n = n - 1;
+
+				continue;
+			}
+
+		}
+
+		if (isComposite != 0) {
+
+			input = input - 1;
+		}
+
+		else {
+			printf("%d ", input);
+
+			input = input - 1;
+
+			continue;
+
+		}
+	}
+
+	return 0;
+
+}
+
