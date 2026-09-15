@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#include <math.h>
+
+int main() {
+
+	int input = 0;
+
+	printf("please type a number:");
+
+	scanf_s("%d",&input);
+
+	for (int variable = 2; variable <= input; variable++) {
+
+		int isPrime = 0;
+
+		int n = (int)sqrt(variable);
+
+		while (n>1) {
+
+			if (variable%n==0) {
+
+				isPrime = 1;
+
+				break;
+			}
+
+			else {
+
+				n = n - 1;
+			}
+		}
+		if (isPrime == 1) {
+			continue;
+
+		}
+
+		else {
+
+			printf("%d ",variable);
+
+			continue;
+		}
+	}
+
+	return 0;
+
+}
+
