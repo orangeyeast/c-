@@ -1,0 +1,68 @@
+
+#include <stdio.h>
+
+void clear_input_buffer(void) {
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+		; // 什么都不做，只是把字符丢掉
+	}
+}
+
+int main(void) {
+
+	int input = 0;
+
+	while (1) {
+
+		printf("please type a number:");
+
+		int result= scanf_s("%d", &input);
+
+		if (result == 1) {
+			if (input>=1) {
+
+				break;
+			}
+
+			else {
+
+				printf("please type again, the input must be a number larger than 1 or equal to 1\n");
+
+				continue;
+			}
+		}
+		else {
+
+			printf("please type again, the input must be a number!\n");
+
+			clear_input_buffer();
+
+			continue;
+
+		}
+
+	}
+
+	int digit = 1;
+
+	while (input/digit>=10) {
+		
+		digit = digit * 10;
+		
+	}
+
+	for (;digit > 0;digit=digit/10) {
+
+		if (digit>=10) {
+			printf("%d ", input / digit % 10);
+
+		}
+		else {
+			printf("%d", input / digit % 10);
+		}
+	}
+
+	return 0;
+
+}
+
