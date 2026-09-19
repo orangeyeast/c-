@@ -1,0 +1,98 @@
+//水仙花数
+
+#include <stdio.h>
+
+void clear_input_buffer(void) {
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+		; // 什么都不做，只是把字符丢掉
+	}
+}
+
+int main(void) {
+
+	int input = 0;
+
+	while (1) {
+
+		printf("please type a number:");
+
+		int result= scanf_s("%d", &input);
+
+		if (result == 1) {
+			if (input>=3&&input<=7) {
+
+				break;
+			}
+
+			else {
+
+				printf("please type again, the input must be a number larger than 3 or equal to 3 ,smaller than 7 or equal to 7\n");
+
+				continue;
+			}
+		}
+		else {
+
+			printf("please type again, the input must be a number!\n");
+
+			clear_input_buffer();
+
+			continue;
+
+		}
+
+	}
+
+	int min = 1;
+
+	int max = 1;
+
+	int tempo = input-1;
+
+	for (;tempo > 0;tempo--) {
+
+		min = min * 10;
+	}
+
+	max = min * 10 - 1;
+
+	int number = 0;
+
+	for (number = min;number <= max;number++) {
+		int sum = 0;
+
+		int tem = number;
+
+		while (tem>0) {
+			int temporary = 1;
+
+			int i = input;
+
+			for (;i > 0;i--) {
+
+				temporary = temporary * (tem % 10);
+
+			}
+
+			sum = sum + temporary;
+
+			tem = tem / 10;
+
+		}
+
+		if (sum==number) {
+
+			printf("%d\n", number);
+		}
+
+		else {
+
+			continue;
+		}
+	}
+	return 0;
+	
+
+}
+
