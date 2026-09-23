@@ -1,0 +1,80 @@
+猜数
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    // 用当前时间初始化种子，只需调用一次
+    srand((unsigned int)time(NULL));
+
+    int num = rand() % 100;   // 0 到 99
+
+    int count1= rand() % 100;
+
+    printf("%d %d\n", num,count1);
+
+    int input = 0;
+
+    int count2 = 0;
+ 
+    do {
+        printf("please type a number:");
+
+        scanf_s("%d",&input);
+
+        if (input != num) {
+
+            if (input>num) {
+
+                printf("Too big!\n");
+
+                count2++;
+            }
+
+            else {
+
+                if (input<0) {
+
+                    printf("Game Over!");
+                
+                    return 0;
+                }
+                
+                else {
+                    printf("Too small!\n");
+
+                    count2++;
+                }
+
+            }
+            continue;
+
+        }
+
+        else {
+
+            break;
+        }
+
+    } while (count2<=count1);
+
+    if (count2==1) {
+
+        printf("Bingo!");
+    }
+
+    if (count2==2 || count2==3) {
+
+        printf("Lucky you!");
+    }
+
+
+    if (count2 >=3||count2<=count1) {
+
+        printf("Good guess!");
+    }
+
+    return 0;
+}
