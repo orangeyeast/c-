@@ -1,0 +1,41 @@
+//斐波那契数列分数求和：
+
+#include <stdio.h>
+
+int main() {
+    
+    int a = 0;
+
+    printf("please type a number:");
+
+    scanf_s("%d",&a);
+    //优化可以在这里做安全输入
+
+    int count = 0;
+
+    float son = 2;
+
+    float mother = 1;
+
+    int tempo = 0;
+
+    float sum = 0;
+
+    while (count<a) {
+        sum = sum + (son / mother);
+
+        tempo = son;
+
+        son = son + mother;
+
+        mother = tempo;
+
+        count++;
+
+    }
+
+    printf("%0.2f",sum);
+
+    return 0;
+    
+}
