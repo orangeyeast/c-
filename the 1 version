@@ -1,0 +1,50 @@
+//最简分数
+
+#include <stdio.h>
+
+int main() {
+   
+    int son = 0;
+
+    int mother = 0;
+
+    printf("please type a fraction: (example: 1/2 )");
+
+    scanf_s("%d/%d",&son,&mother);
+
+    int tempo = 0;
+
+    int temp1 = son;
+
+    int temp2 = mother;
+   
+    if (son==mother) {
+        printf("the fraction is 1/1");
+
+        return 0;
+
+    }
+
+    else {
+
+        int t = 0;
+
+        while (mother>0) {
+            t = son % mother;
+
+            son = mother;
+
+            mother = t;
+
+        }
+    }
+
+    temp1 = temp1 / son;
+
+    temp2 = temp2 / son;
+
+    printf("the friction is %d/%d",temp1,temp2);
+
+    return 0;
+    
+}
