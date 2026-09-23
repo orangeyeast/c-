@@ -1,0 +1,125 @@
+//新增了针对负数的约分：
+
+#include <stdio.h>
+
+void clear_input_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        // 丢弃缓冲区中的字符
+    }
+}
+
+int main() {
+   
+    int son = 0;
+
+    int mother = 0;
+
+    while (1) {
+        printf("please type a fraction: (example: 1/2 )\n");
+
+        int t = scanf_s("%d/%d", &son, &mother);
+
+        if (t==2) {
+
+            if (mother==0) {
+
+                printf("the denominator shouldn't be 0 , please type again\n");
+
+                clear_input_buffer();
+            }
+
+            else {
+
+                clear_input_buffer();
+
+                break;
+            }
+        }
+
+        else if (t == EOF) {
+            printf("The input is ended\n");
+            return 1;  // 或 break 到外层
+        }
+        else {
+            printf("\nplease type a fraction , you must use the / in English");
+
+            clear_input_buffer();
+
+        }
+
+    }
+
+    if (son>=0) {
+
+        int tempo = 0;
+
+        int temp1 = son;
+
+        int temp2 = mother;
+
+        if (son == mother) {
+            printf("the fraction is 1/1");
+
+            return 0;
+
+        }
+
+        else {
+
+            int t = 0;
+
+            while (mother > 0) {
+                t = son % mother;
+
+                son = mother;
+
+                mother = t;
+
+            }
+        }
+
+        if (temp2 / son == 1) {
+            printf("the fraction is %d", temp1 / son);
+
+        }
+
+        else {
+            printf("the fraction is %d/%d", temp1 / son, temp2 / son);
+        }
+
+    }
+    
+    else {
+
+        son = -son;
+
+        int temp1 = son;
+
+        int temp2 = mother;
+
+        int t = 0;
+   
+        while (mother > 0) {
+                t = son % mother;
+
+                son = mother;
+
+                mother = t;
+
+            
+        }
+
+        if (temp2 / son == 1) {
+            printf("the fraction is -%d", temp1 / son);
+
+        }
+
+        else {
+            printf("the fraction is -%d/%d", temp1 / son, temp2 / son);
+        }
+
+    }
+    return 0;
+    
+}
