@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main()
+{
+    int ch;
+
+    int count = 0;
+
+    while ((ch = getchar()) != '.') {
+
+        if (ch==' ') {
+            if (count > 0) {
+
+                printf("%d ", count);
+
+                count = 0;
+            }
+
+        }
+        else {
+
+            count = count++;
+
+
+        }
+
+    }
+
+    if (count>0) {
+
+        printf("%d", count);
+    }
+
+    return 0;
+
+}
