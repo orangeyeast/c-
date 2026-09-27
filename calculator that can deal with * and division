@@ -1,0 +1,140 @@
+// calculator.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <stdio.h>
+
+int main() {
+
+    double num1 = 0;
+
+    double total = 0;
+
+    double term = 0;
+
+    char theLastChar = '1';
+
+    char character = '1';
+
+    printf("please type a formula: (ending with a =) ");
+
+    int temp1= scanf_s("%lf",&term);
+
+    if (temp1==0) {
+
+        printf("Error!");
+
+
+    }
+
+    else {
+
+    }
+
+    while (character!='=') {
+
+        int temp2=scanf_s("%c",&character);
+
+        if (temp2 != 1) {
+
+            printf("Error!");
+        }
+        
+        else if (character == '=') {
+
+            break;
+        }
+
+        else{
+        
+            if (character == '+' || character == '-') {
+
+                if (theLastChar == '1') {
+
+                    total = total + term;
+
+                    scanf_s("%lf", &term);
+
+                    theLastChar = character;
+                }
+
+                else {
+
+                    if (theLastChar == '+') {
+
+                        total = total + term;
+
+                        scanf_s("%lf", &term);
+
+                        theLastChar = character;
+                    }
+
+                    else {
+                        total = total - term;
+
+                        scanf_s("%lf", &term);
+
+                        theLastChar = character;
+                    }
+                }
+            }
+
+            else if (character == '*' || character == '/') {
+
+                int temp3 = scanf_s("%lf", &num1);
+
+                if (temp3 != 1) {
+
+                    printf("Error!");
+
+
+                }
+                else {
+                    if (character == '*') {
+
+                        term = term * num1;
+
+                    }
+
+                    else {
+                        if (num1==0) {
+                            printf("Error!");
+
+                            return 1;
+
+                        }
+
+                        else {
+                            term = term / num1;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+    
+    if (theLastChar == '-') {
+        total = total - term;
+    }
+    else {
+        total = total + term;
+    }
+
+
+    printf("%0.2f",total);
+
+
+    return 0;
+
+}
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
