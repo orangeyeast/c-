@@ -1,0 +1,124 @@
+中文读音2（简化负数判断）
+#include <stdio.h>
+
+void clear_input_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        // 丢弃缓冲区中的字符
+    }
+}
+
+int main() {
+
+    int input = 0;
+
+    while (1) {
+
+        printf("please type a number: \n");
+
+        int t = scanf_s("%d", &input);
+
+        if (t == 1) {
+            break;
+        }
+
+        else if (t == EOF) {
+            printf("The input is ended\n");
+            return 1;  // 或 break 到外层
+        }
+        else {
+            printf("\nplease type a number");
+
+            clear_input_buffer();
+
+        }
+
+    }
+
+    if (input < 0) {
+
+        input = -input;
+
+        printf("fu ");
+    }
+
+    else {
+
+
+    }
+
+    int tempo1 = input;
+
+    int digit = 1;
+
+    while (tempo1 > 9) {
+
+        tempo1 = tempo1 / 10;
+
+        digit = digit * 10;
+    }
+
+    int tempo2 = input;
+
+    while (digit > 0) {
+        int tempo3 = 0;
+
+        tempo3 = tempo2 / digit;
+
+        tempo2 = tempo2 % digit;
+
+        digit = digit / 10;
+
+        switch (tempo3) {
+        case 1:
+            printf("yi");
+            break;
+        case 2:
+            printf("er");
+            break;
+
+        case 3:
+            printf("san");
+            break;
+
+        case 4:
+            printf("si");
+            break;
+        case 5:
+            printf("wu");
+            break;
+        case 6:
+            printf("liu");
+            break;
+        case 7:
+            printf("qi");
+            break;
+        case 8:
+            printf("ba");
+            break;
+        case 9:
+            printf("jiu");
+            break;
+        case 0:
+            printf("ling");
+            break;
+
+           
+        }
+        if (digit != 0) {
+
+            printf(" ");
+        }
+
+        else {
+
+            continue;
+
+        }
+
+    }
+
+
+    return 0;
+
+}
