@@ -1,0 +1,63 @@
+
+#include <stdio.h>
+
+int main() {
+
+    int result = 0;
+
+    char sign= '1';
+
+    printf("please type a formula :");
+
+    scanf_s("%d",&result);
+
+    while (sign!='=') {
+
+        int tempo = 0;
+
+        scanf_s("%c",&sign,1);
+
+        if (sign=='=') {
+            break;
+
+        }
+
+        else if (sign=='+') {
+            scanf_s("%d", &tempo);
+
+            result =tempo+ result;
+        }
+
+        else if (sign == '-') {
+            scanf_s("%d", &tempo);
+
+            result = result-tempo;
+        }
+        else if (sign == '*') {
+            scanf_s("%d", &tempo);
+
+            result = tempo* result;
+        }
+        else if (sign == '/') {
+            if (tempo == 0) {   
+
+                printf("ERROR\n");
+
+                return 0;
+            }
+            result = result / tempo;
+        }
+        else{
+        
+            printf("ERROR!");
+
+            return 1;
+        }
+    }
+
+    printf("%d",result);
+
+
+    return 0;
+
+}
