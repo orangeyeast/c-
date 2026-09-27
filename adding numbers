@@ -1,0 +1,68 @@
+
+
+#include <stdio.h>
+
+void clear_input_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        // 丢弃缓冲区中的字符
+    }
+}
+
+int main() {
+
+    int a, n;
+
+    while (1) {
+
+        printf("please type two numbers :(example:3 4)\n");
+
+        int t = scanf_s("%d %d", &a,&n);
+
+        if (t == 2) {
+            if(a>=0&&a<=9&&n>=1&&n<=8){
+                
+                break;
+            
+            }
+            else {
+
+                printf("a should between 0 and 9 , b should between 1 and 8 (equal is possible) \n");
+
+            }
+
+        }
+
+        else if (t == EOF) {
+            printf("The input is ended\n");
+            return 1;  // 或 break 到外层
+        }
+        else {
+            printf("\nplease type two numbers");
+
+            clear_input_buffer();
+
+        }
+
+    }
+
+    int tempo = a;
+
+    int sum = 0;
+
+    int count = 0;
+
+    while (count<n) {
+
+        sum = sum + tempo;
+
+        count = count + 1;
+
+        tempo = a + tempo * 10;
+    }
+
+    printf("the sum is %d", sum);
+
+    return 0;
+
+}
