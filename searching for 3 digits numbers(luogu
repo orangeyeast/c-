@@ -1,0 +1,61 @@
+
+#include<stdio.h>
+
+int main() {
+
+	int x = 0;
+
+	int y = 0;
+
+	int z = 0;
+
+	for (x=123;x >= 123 && x <= 329;x++) {
+		int ok = 1;
+
+		y = x * 2;
+
+		z = x * 3;
+
+		int digit[9] = {
+
+		x / 100, x / 10 % 10, x % 10,
+			y / 100, y / 10 % 10, y % 10,
+			z / 100, z / 10 % 10, z % 10
+		};
+
+		int cnt[10] = { 0 };
+
+		int tempo = 0;
+
+		for (tempo;tempo < 9;tempo++) {
+			if (digit[tempo]==0) {
+
+				ok = 0;
+
+				break;
+			}
+
+			cnt[digit[tempo]]++;
+
+			if (cnt[digit[tempo]]>1) {
+				ok = 0;
+
+				break;
+
+			}
+
+			
+
+		}
+
+		if (ok) {
+			printf("%d %d %d\n", x, y, z);
+		}
+
+		
+		
+			
+	}
+
+	return 0;
+}
