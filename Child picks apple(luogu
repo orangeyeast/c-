@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main() {
+
+	int height[10] = { 0 };
+
+	int number = 0;
+	for (number = 0;number < 10;number++) {
+		scanf_s("%d", &height[number]);
+
+	}
+
+	int taoTaoHeight = 0;
+
+	scanf_s("%d", &taoTaoHeight);
+
+	int count = 0;
+
+	for (number=9;number >= 0;number--) {
+
+		if (height[number]<=(taoTaoHeight+30)) {
+
+			count = count + 1;
+		}
+	}
+
+	printf("%d", count);
+
+	return 0;
+}
