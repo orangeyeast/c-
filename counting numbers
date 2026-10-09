@@ -1,0 +1,48 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int total[10] = {0};
+
+    int number = 0;
+
+    printf("please type several numbers (using ' ' to divide the number)");
+
+    scanf_s("%d", &number);
+
+    while (number != -1) {
+        
+        if (number>=0&&number<=9) {
+
+            total[number] = total[number] + 1;
+
+            scanf_s("%d", &number);
+        }
+
+        else {
+
+            printf("Invalid input!");
+
+            return 1;
+        }
+        
+    }
+    
+    int time = 9;
+
+    while (time>=0) {
+        printf("the amount of %d is %d time(s)\n",time,total[time]);
+
+        time--;
+    }
+
+
+        
+    return 0;
+
+}
+
+
+
+// Run
