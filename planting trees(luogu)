@@ -1,0 +1,67 @@
+#include<stdio.h>
+//为了适应洛谷的评分标准，需要把scanf_s改成scanf
+
+void tree(int min,int max);
+
+int total[10002] = { 0 };
+
+//500后面要改成total+1
+
+int main() {
+	int total1 = 0;
+
+	int time = 0;
+
+	scanf_s("%d %d", &total1, &time);
+
+	while (time>0) {
+		int min = 0;
+
+		int max = 0;
+
+		scanf_s("%d %d", &min, &max);
+
+		tree(min, max);
+
+		time = time - 1;
+	}
+
+	int number = 0;
+
+	int count2 = 0;
+	while (number<=total1) {
+
+		if (total[number]==0) {
+
+			count2++;
+
+			number++;
+		}
+		else {
+			number++;
+
+			continue;
+		}
+	}
+
+	printf("%d", count2);
+
+	return 0;
+
+
+}
+
+void tree(int min, int max) {
+	for (int temp = min;temp <= max;temp++) {
+		if (total[temp]==0) {
+			total[temp] = 1; 
+		}
+
+		else {
+
+			continue;
+		}
+
+	}
+
+}
