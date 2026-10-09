@@ -1,0 +1,54 @@
+
+#include<stdio.h>
+//为了适应洛谷的评分标准，需要把scanf_s改成scanf
+int main() {
+
+	int day[7] = { 0 };
+
+	for (int temp = 0;temp < 7;temp++) {
+		int hour1 = 0;
+
+		int hour2 = 0;
+
+		scanf_s("%d %d", &hour1, &hour2);
+
+		day[temp] = hour1 + hour2;
+
+	}
+
+	int a = 0;
+
+	int max = 0;
+
+	while (a<7) {
+		if (day[a]>8&&day[a]>max) {
+			max = day[a];
+
+		}
+
+		a++;
+	}
+
+	if (max==0) {
+		printf("0");
+
+	}
+
+	else {
+		int tem = 0;
+
+		while (tem<7) {
+			if (day[tem]==max) {
+				printf("%d",(tem+1));
+
+				break;
+			}
+
+			tem++;
+		}
+	}
+	return 0;
+
+
+}
+
