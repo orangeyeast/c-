@@ -1,0 +1,30 @@
+
+#include<stdio.h>
+//为了适应洛谷的评分标准，需要把scanf_s改成scanf
+int main() {
+
+	double inputS = 0;
+
+	double total = 0;
+
+	int count = 0;
+
+	double temp = 2.0;
+
+	scanf_s("%lf", &inputS);
+
+	while (total < inputS) {
+		total = total + temp;
+
+		temp = temp * 0.98;
+
+		count++;
+
+	}
+
+	printf("%d", count);
+
+	return 0;
+}
+
+
