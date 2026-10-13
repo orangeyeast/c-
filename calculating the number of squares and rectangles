@@ -1,0 +1,61 @@
+
+#include <stdio.h>
+
+int square(int a,int b );
+
+int rectangle(int c, int d);
+
+//scanf_s改成scanf 洛谷
+
+int main()
+{
+    int n = 0;
+
+    int m = 0;
+
+    scanf_s("%d %d",&n,&m);
+
+    int num1 = 0;
+
+    int num2 = 0;
+
+    num1=square(n,m);
+    
+    num2 = rectangle(n, m) - num1;
+
+    printf("%d %d", num1, num2);
+
+    return 0;
+}
+
+int square(int a, int b) {
+
+    int sum = 0;
+
+    while (a>0&&b>0) {
+        sum = sum + a * b;
+
+        a = a - 1;
+
+        b = b - 1;
+
+    }
+
+    return sum;
+}
+
+int rectangle(int c, int d) {
+    int sum = 0;
+
+    int temp1=0, temp2=0;
+
+    for (temp1 = c; temp1 > 0; temp1--) {
+
+        for (temp2 = d;temp2 > 0; temp2--) {
+        
+            sum += temp1 * temp2;
+        }
+    }
+
+    return sum;
+}
