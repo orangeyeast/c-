@@ -1,0 +1,29 @@
+
+#include<stdio.h>
+
+int smoke(int n, int k, int left);
+//洛谷不能用scanf_s
+
+int main() {
+	int n = 0;
+
+	int k = 0;
+
+	scanf_s("%d %d", &n, &k);
+
+	printf("%d", smoke(n, k, 0));
+	
+	return 0;
+}
+
+int smoke(int n, int k, int left) {
+
+	int p = n + left;
+
+	if (p<k) {
+
+		return n;
+	}
+
+	return n + smoke(p / k, k, p % k);
+}
