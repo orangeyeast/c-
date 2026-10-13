@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+
+int count(int a,int k);
+
+//scanf_s改成scanf 洛谷
+
+int main()
+{
+    int n = 0;
+
+    int x = 0;
+
+    int total = 0;
+
+    scanf_s("%d %d", &n, &x);
+
+    for (int temp3 = n;temp3 > 0;temp3--) {
+
+        total=total + count(temp3, x);
+
+    }
+
+    printf("%d", total);
+
+    return 0;
+}
+
+int count(int a,int k) {
+
+    int count = 0;
+    for (int temp = a;temp > 0;temp/=10) {
+        if (temp%10==k) {
+
+            count++;
+        }
+
+    }
+
+    return count;
+}
+
+   
