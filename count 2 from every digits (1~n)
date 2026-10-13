@@ -1,0 +1,50 @@
+
+
+#include<stdio.h>
+
+int number(int x);
+
+int main() {
+
+	int left = 0;
+
+	int right = 0;
+
+	int count = 0;
+
+	scanf_s("%d %d",&left,&right);
+
+	int temp = 0;
+
+	for (temp = left;temp <= right;temp++) {
+
+		count = count + number(temp);
+	}
+
+	printf("%d",count);
+
+
+	return 0;
+}
+
+
+int number(int x) {
+
+	int number = 10000;
+
+	int count = 0;
+
+	for ( ;number > 0;number = number / 10) {
+
+		if (x / number == 2) {
+
+			count = count + 1;
+		}
+
+		x = x - (x / number) * number;
+
+		
+	}
+
+	return count;
+}
