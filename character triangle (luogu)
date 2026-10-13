@@ -1,0 +1,21 @@
+
+#include <stdio.h>
+
+//scanf_s改成scanf 洛谷
+
+int main()
+{
+    char input = 'a';
+
+    scanf_s("%c", &input);
+
+    printf("  %c  \n", input);
+
+    printf(" %c%c%c \n", input, input, input);
+
+    printf("%c%c%c%c%c", input, input, input, input, input);
+
+    return 0;
+}
+
+   
