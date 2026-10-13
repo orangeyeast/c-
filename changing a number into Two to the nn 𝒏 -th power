@@ -1,0 +1,64 @@
+
+
+#include<stdio.h>
+
+void solve(int a);
+
+int main() {
+	int input = 0;
+
+	scanf_s("%d", &input);
+
+	solve(input);
+
+	return 0;
+
+}
+
+void solve(int a) {
+
+	if (a==0) {
+		printf("0");
+
+		return;
+
+	}
+
+	int first = 1;
+
+	int digit = 14;
+
+	for (digit;digit>=0;digit--) {
+		if (a & (1 << digit)) {
+			if (first == 0) {
+
+				printf("+");
+			}
+
+			first = 0;
+
+			if (digit == 0) {
+
+				printf("2(0)");
+
+			}
+
+			else if (digit == 1) {
+				printf("2");
+
+			}
+
+			else {
+
+				printf("2(");
+
+				solve(digit);
+
+				printf(")");
+			}
+		}
+	}
+	
+
+
+}
