@@ -1,0 +1,42 @@
+
+#include <stdio.h>
+
+int level[20000001];
+
+//scanf_s改成scanf 洛谷
+
+int main()
+{
+    int max = 0;
+
+    int people = 0;
+
+    scanf_s("%d",&people);
+
+    for (int i = people;i > 0;i--) {
+        int number = 0;
+
+        scanf_s("%d",&number);
+
+        level[number] = 1;
+
+        if (max<number) {
+
+            max = number;
+        }
+    }
+
+    int count = 0;
+
+    for (int temp = 20000000;temp > 0;temp--) {
+
+        if (level[temp]) {
+            count++;
+
+        }
+    }
+
+    printf("%d", people + 5 * count + max * 10);
+
+    return 0;
+}
