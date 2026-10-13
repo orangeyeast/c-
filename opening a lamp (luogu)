@@ -1,0 +1,57 @@
+
+#include <stdio.h>
+
+void light(double temp1, int temp2, int light[]);
+
+int lamp[2000001] = { 0 };
+//scanf_s改成scanf 洛谷
+
+int main()
+{
+
+    int time = 0;
+
+    scanf_s("%d", &time);
+
+    while (time>0) {
+
+        double a = 0;
+
+        int t = 0;
+
+        scanf_s("%lf %d",&a,&t);
+
+        light(a, t, lamp);
+
+        time--;
+    }
+
+    for (int number = 0;number < 2000001;number++) {
+        if (lamp[number]) {
+            printf("%d",number);
+
+            break;
+        }
+    }
+    
+
+    return 0;
+}
+
+void light(double temp1, int temp2, int light[]) {
+    int product = 0;
+
+    for (int i = 1;i <= temp2;i++) {
+        product = i * temp1;
+
+        if (light[product]) {
+            light[product] = 0;
+        }
+
+        else {
+            light[product] = 1;
+
+        }
+    }
+
+}
