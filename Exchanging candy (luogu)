@@ -1,0 +1,44 @@
+
+
+#include<stdio.h>
+
+//洛谷不能用scanf_s
+
+int main() {
+	int candy[5] = { 0 };
+
+	int eat = 0;
+
+	for (int temp = 0;temp < 5;temp++) {
+		scanf_s("%d", &candy[temp]);
+
+	}
+
+	for (int temp2 = 0;temp2 < 5;temp2++) {
+		eat = eat + (candy[temp2] % 3);
+
+		candy[(temp2 + 5 - 1) % 5] = candy[(temp2 + 5 - 1) % 5] + (candy[temp2] / 3);
+
+		candy[(temp2 + 5 + 1) % 5] = candy[(temp2 + 5 + 1) % 5] + (candy[temp2] / 3);
+
+		candy[temp2] = candy[temp2] / 3;
+
+	}
+
+	for (int temp3 = 0;temp3 < 5;temp3++) {
+
+		if (temp3==4) {
+
+			printf("%d\n", candy[temp3]);
+		}
+		else {
+			printf("%d ",candy[temp3]);
+		}
+
+	}
+
+	printf("%d", eat);
+
+	return 0;
+
+}
