@@ -1,0 +1,52 @@
+//五位数
+#include <stdio.h>
+
+//洛谷不能用scanf_s
+
+int main() {
+
+	int K = 0;
+
+	int OK = 0;
+
+	scanf_s("%d", &K);
+
+	for (int i = 10000;i < 30001;i++) {
+
+		if ((i/100)%K==0) {
+
+			if (((i%10000)/10)%K==0) {
+
+				if ((i%1000)%K==0) {
+
+					printf("%d\n", i);
+
+					OK = 1;
+				}
+
+				else {
+					continue;
+
+				}
+			}
+
+			else {
+
+				continue;
+			}
+		}
+
+		else {
+
+			continue;
+		}
+	}
+
+	if (OK == 0) {
+
+		printf("No");
+
+	}
+
+	return 0;
+}
